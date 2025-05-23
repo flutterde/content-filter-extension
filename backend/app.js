@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import routes from './src/routes.js';
 
 dotenv.config();
 
@@ -8,6 +9,8 @@ const app = express();
 
 app.use(express.json());
 
+// Use routes
+app.use('/api', routes);
 
 app.get('/', (req, res) => {
   return res.json({message: "API Working.."});
