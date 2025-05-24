@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { checkSchema, validationResult } from "express-validator";
 import { loginAdminValidator } from "../validators/admin";
+import { mainControllers } from "../controllers/main.controllers";
 
 
 const router = Router();
@@ -13,7 +14,7 @@ router.post("/login", checkSchema(loginAdminValidator), (req, resp) => {
                 message: error.msg,
             })));
         }
-    return //
+    return mainControllers.adminLoginController(req, resp);
 })
 
 export default router;
